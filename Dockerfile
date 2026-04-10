@@ -1,6 +1,8 @@
-FROM httpd:alpine
+FROM httpd:latest
 
-RUN apk add --no-cache openssl
+RUN apt-get update && \
+    apt-get install -y openssl && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
     -keyout /usr/local/apache2/conf/server.key \
