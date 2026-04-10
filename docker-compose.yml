@@ -1,0 +1,7 @@
+services:
+  apache-h2:
+    build: .
+    container_name: servidor_apache_h2
+    ports:
+      - "443:443"
+    restart: unless-stopped
